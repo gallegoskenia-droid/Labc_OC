@@ -8,15 +8,15 @@ section	.text
 _start:
     
     ;a
-    in al, 80h
-    mov bl, al
-    cmp bl, 5
-    jae .mayor ;jArriba Equal
+    call getche
+    sub al, '0'
+    cmp al, 5
+    jae .mayor 
     mov edx, msg
-    call puts
+    call puts 
+
 .mayor mov al, 10
     call putchar
-
 
 mov eax, 1 ;final 
 int 0x80 
