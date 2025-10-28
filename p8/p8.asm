@@ -15,7 +15,7 @@ _start:
     mov edx, msg
     call puts
 .mayor mov al, 10
-    call putchar 
+    call putchar
 
 
 mov eax, 1 ;final 
