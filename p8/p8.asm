@@ -8,29 +8,18 @@ section	.text
 _start:
     
     ;a
-   ;n al, 80h
-   ;mv bx, 5
-   ;comp al, bx
-   ;jae .mayor
-   ;out 
-;mayor out 
-
-    ;b
-   ;in 
-
-    ;c
     in al, 80h
-    mov 
-.nuevo mov al, '*'
-    out 0x92, al
-    mov al, 10
-    call putchar
-    loop .nuevo
+    mov bl, al
+    cmp bl, 5
+    jae .mayor ;jArriba Equal
+    mov edx, msg
+    call puts
+.mayor mov al, 10
+    call putchar 
 
-    ;d 
-   ;in al, 
-   ;out 
-    ;ov cx, 10 
 
 mov eax, 1 ;final 
 int 0x80 
+
+section .data
+msg db 'el numero es menor', 0xa, 0
