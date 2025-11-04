@@ -7,7 +7,7 @@ msg_1 db 'Ingrese dato: ', 0xa, 0
 length: equ N
 
 section .start 
-;capturar 
+
     mov al, msg_1
     call puts 
     mov al, 10
@@ -17,15 +17,12 @@ section .start
     sub al, '0'
     comp al, '9'
     ja .fin ;Above 
-    mov al, N  
-    call pHex_b
-    mov al, 10
-    call puts 
+    call phex_dw
     
-    mov al, msg_1
-    call puts 
+    mov N, al
     mov al, 10
-    call putchar
+    call putchar 
+   
 
 .fin mov al, 10
     call puts
