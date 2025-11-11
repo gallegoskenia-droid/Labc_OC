@@ -1,3 +1,4 @@
+%include '../LIB/pc_iox.inc'
 
 section .data
 msg db 'abcdef',0xa, 0
@@ -26,19 +27,12 @@ proc2:
     push ebp
     mov ebp,esp
    
-    mov ecx, [msg]
+    mov ecx, [msg +20]
     mov al,0
-    inc al
+
+    .suma inc al
+    loop .suma
     call putchar
-    loop 
-
-
-
-
-
-    
-
-
 
     pop ebp
     ret
@@ -48,6 +42,10 @@ proc3:
    ;primer paso 
     push ebp
     mov ebp, esp
+
+
+
+
 
     ;ultimo paso 
     pop ebp
